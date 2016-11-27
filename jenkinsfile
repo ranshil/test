@@ -12,7 +12,7 @@ stage('ero2') {
 
 	timestamps {
 			try {
-				sh "ENV=${environment} ./gradlew run"
+				sh "./gradlew run"
 			} catch (err) {
 				step([$class: 'JUnitResultArchiver', testResults: 'build/test-results/TEST-*.xml'])
 				throw err
