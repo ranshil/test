@@ -10,6 +10,10 @@ sleep time: 200, unit: 'NANOSECONDS'
 stage('ero2') {
   echo 'Hello 222 World'
 
+  currentBuild.description = "deploy ${environment.toLowerCase()}"
+echo ${environment}
+echo "hahaha "
+
 	timestamps {
 			try {
 				exec ./gradlew clean build
