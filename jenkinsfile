@@ -9,6 +9,17 @@ sleep time: 200, unit: 'NANOSECONDS'
 
 stage('ero2') {
   echo 'Hello 222 World'
-  ./gradlew run
-}
+
+	timestamps {
+			try {
+				sh "ENV=${environment} ./gradlew run"
+			} catch (err) {
+				step([$class: 'JUnitResultArchiver', testResults: 'build/test-results/TEST-*.xml'])
+				throw err
+			}
+		}
+
+
+
+	}
 }
