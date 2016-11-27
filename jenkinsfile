@@ -9,17 +9,6 @@ sleep time: 200, unit: 'NANOSECONDS'
 
 stage('ero2') {
   echo 'Hello 222 World'
-
-	timestamps {
-			try {
-				./gradlew clean build
-			} catch (err) {
-				step([$class: 'JUnitResultArchiver', testResults: 'build/test-results/TEST-*.xml'])
-				throw err
-			}
-		}
-
-
-
+	./gradlew clean build
 	}
 }
