@@ -8,5 +8,7 @@ stage('ero1') {
 sleep time: 200, unit: 'NANOSECONDS'
 
 stage('ero2') {
-  echo 'Hello 222 World'}
+  echo 'Hello 222 World'
+  ./graldew run
+}
 }
